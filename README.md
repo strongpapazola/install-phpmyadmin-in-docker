@@ -13,6 +13,6 @@ docker run -d --restart always --name phpmyadmin -e PMA_HOST=172.17.0.1 -e PMA_P
 
 ```
 UPDATE mysql.user SET plugin = 'mysql_native_password', authentication_string = PASSWORD('pass123') WHERE User = 'root';
-UPDATE mysql.db SET Host='%' WHERE Host='localhost' AND User='root';
+GRANT ALL ON *.* to root@'172.17.0.2' IDENTIFIED BY 'pass123';
 FLUSH PRIVILEGES;
 
